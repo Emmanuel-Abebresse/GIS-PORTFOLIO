@@ -792,9 +792,96 @@ const PROJECT_ARTICLES = {
             { type: "section-heading", value: "Conclusion" },
             { type: "text", value: "This construction survey project illustrated the essential contribution of precise levelling and setting-out to a successful residential build. By maintaining rigorous control over reduced levels and plan positions from the first reconnaissance visit through to structural completion, the survey team ensured that both residential units were built accurately to their approved designs — on time, within tolerance, and without any survey-related rework. The project also provided a valuable mentoring environment, developing the technical confidence and field discipline of the junior technicians involved." }
         ]
+    },
+      project8: {
+        title: "Digital Terrain Modelling of Sullington Warren, West Sussex",
+        tags: ["GIS Analysis", "Remote Sensing"],
+        tools: "ArcGIS Pro, Topcon Hiper HR (GNSS), Topcon OS-103 (Total Station), Leica Nova MS50, DJI Mavic 3M, Agisoft Metashape, Topcon Tools",
+        duration: "6 weeks",
+ 
+        heroImage: "images/sullington_hero.jpg",
+        heroAlt:   "Sullington Warren heathland, South Downs, West Sussex",
+ 
+        content: [
+            { type: "section-heading", value: "Project Overview" },
+            { type: "text", value: "This report presents a digital terrain modelling (DTM) assessment of Sullington Warren, West Sussex — a National Trust-managed heathland site within the South Downs National Park containing a scheduled Bronze Age barrow cemetery. Elevation data were collected through a multi-instrument field survey and three spatial interpolation techniques — Kriging, Inverse Distance Weighting (IDW), and Natural Neighbour — were applied within ArcGIS Pro to generate and compare digital elevation models (DEMs). Performance was evaluated through residual analysis against independently measured GNSS checkpoints to determine the most accurate method for archaeological terrain representation." },
+ 
+            { type: "section-heading", value: "Study Area" },
+            { type: "text", value: "Sullington Warren occupies a prominent position on the southern escarpment of the South Downs, overlooking the surrounding lowland landscape near Storrington, West Sussex. The site is characterised by undulating heathland with irregular ridges, shallow depressions, and notable elevation variation across short distances — making it particularly well suited to digital terrain modelling. Geologically, the area is underlain by Lower Greensand formations giving rise to sandy, free-draining soils that have supported the preservation of archaeological earthworks, including multiple round barrows of national importance. The open heathland provided favourable conditions for both GNSS and total station survey data collection." },
+ 
+            { type: "image-full",
+              src: "images/sullington_location.jpg",
+              alt: "Location map of Sullington Warren study area",
+              caption: "Figure 1. Location Map of Sullington Warren, West Sussex — study area boundary shown on aerial imagery (Scale 1:5,788, Data: Digimap)." },
+ 
+            { type: "section-heading", value: "Field Data Collection" },
+            { type: "text", value: "Field survey data were collected by students and staff from the University of Portsmouth using a combination of four complementary survey methods. Differential GNSS measurements were obtained using the Topcon Hiper HR, which delivers centimetre-level accuracy through real-time satellite correction and was used across the open heathland areas. The Topcon OS-103 total station provided precise angular and distance observations where vegetation or slope complexity limited GNSS effectiveness. The Leica Nova MS50 MultiStation added integrated imaging and scanning capability, capturing detailed surface variation and subtle archaeological features. Aerial photogrammetry was conducted using the DJI Mavic 3M, with overlapping imagery processed in Agisoft Metashape to generate dense point clouds and surface models. All ground-based data were post-processed in Topcon Tools before import into ArcGIS Pro." },
+ 
+            { type: "image-full",
+              src: "images/sullington_points.jpg",
+              alt: "Map of Sullington Warren showing surveyed data points for DEM interpolation",
+              caption: "Figure 2. Map of Sullington Warren study area showing processed GNSS survey points used for DEM interpolation (Scale 1:1,000 approx., Data: Digimap / OS)." },
+ 
+            { type: "section-heading", value: "Interpolation Methods" },
+            { type: "text", value: "Three interpolation techniques were applied to the processed point dataset within ArcGIS Pro. Kriging is a geostatistical method that predicts unknown elevation values based on spatial autocorrelation modelled through a semivariogram — in this study, a spherical model was applied, which is well suited to gradual topographic variation. Inverse Distance Weighting (IDW) is a deterministic method that assigns greater influence to nearby sample points based on the inverse of their distance to the prediction location; it is computationally straightforward but can produce localised artefacts where data are unevenly clustered. Natural Neighbour interpolation uses Thiessen polygon tessellation to assign proportional weights to surrounding observations, producing a locally adaptive surface that honours the original data and handles irregularly distributed datasets effectively. Accuracy was assessed by computing residuals (Zres = Zdat − Zgrd) against seven independently measured GNSS checkpoints." },
+ 
+            { type: "section-heading", value: "Results — Digital Elevation Models" },
+            { type: "text", value: "All three methods captured the broad ridge-and-slope character of Sullington Warren, with elevation ranging from approximately 49.5 m in the southern lowland areas to 73.7 m at the highest ridge crests in the north-east. The methods differ meaningfully in how they represent surface continuity, local variation, and agreement with the measured checkpoints." },
+ 
+            { type: "image-full",
+              src: "images/sullington_kriging.jpg",
+              alt: "Digital Elevation Model — Kriging interpolation of Sullington Warren",
+              caption: "Figure 3. Digital Elevation Model — Kriging interpolation. Smooth continuous surface representation of elevation variation with transect lines AB and CD shown (Scale 1:3,000 approx., BNG)." },
+ 
+            { type: "image-full",
+              src: "images/sullington_idw.jpg",
+              alt: "Digital Elevation Model — IDW interpolation of Sullington Warren",
+              caption: "Figure 4. Digital Elevation Model — Inverse Distance Weighting interpolation. More localised elevation variation visible around clustered survey points (Scale 1:3,000 approx., BNG)." },
+ 
+            { type: "image-full",
+              src: "images/sullington_natural.jpg",
+              alt: "Digital Elevation Model — Natural Neighbour interpolation of Sullington Warren",
+              caption: "Figure 5. Digital Elevation Model — Natural Neighbour interpolation. Locally adaptive surface preserving terrain detail while avoiding sharp IDW artefacts (Scale 1:3,000 approx., BNG)." },
+ 
+            { type: "section-heading", value: "Topographic Profiles" },
+            { type: "text", value: "Stack profiles were extracted along two transects — Line AB (approximately 340 m east–west across the main ridge) and Line CD (approximately 180 m north–south across the steeper northern escarpment face) — for all three interpolation outputs. The profiles reveal important differences in how each method represents terrain continuity. Kriging produced the smoothest profiles with consistent elevation transitions and no abrupt local oscillations. IDW profiles showed more frequent stepped transitions, particularly around clustered survey points, reflecting the method's sensitivity to point density. Natural Neighbour profiles were intermediate — smoother than IDW but retaining slightly more local detail than Kriging." },
+ 
+            { type: "image-full",
+              src: "images/sullington_profiles_ab.jpg",
+              alt: "Stack profiles Line AB — Kriging, IDW, and Natural Neighbour comparison",
+              caption: "Stack profiles along Line AB for all three interpolation methods — elevation range approximately 54–68 m over 340 m distance. Kriging (top) shows the smoothest terrain continuity." },
+ 
+            { type: "image-full",
+              src: "images/sullington_profiles_cd.jpg",
+              alt: "Stack profiles Line CD — Kriging, IDW, and Natural Neighbour comparison",
+              caption: "Stack profiles along Line CD for all three interpolation methods — elevation range approximately 58–70 m over 180 m, capturing the steeper northern escarpment face." },
+ 
+            { type: "section-heading", value: "Residual Analysis" },
+            { type: "text", value: "Residuals were calculated at seven GNSS checkpoints distributed across the study area. Kriging produced the tightest error range, with residuals between −0.039 m and +0.229 m and a standard deviation of 0.093 m — indicating strong overall agreement between the interpolated surface and the measured terrain. Natural Neighbour performed moderately, with residuals ranging from −0.068 m to +0.320 m and a standard deviation of 0.128 m. IDW recorded the widest spread, with residuals between −0.163 m and +0.546 m and a standard deviation of 0.238 m, reflecting the localised distortion introduced by uneven point clustering. The outlier at Checkpoint 6 affected all three methods, suggesting a genuinely complex local terrain feature rather than a method-specific error." },
+ 
+            { type: "image-full",
+              src: "images/sullington_residuals.jpg",
+              alt: "Residual distribution graphs for Kriging, IDW, and Natural Neighbour interpolation",
+              caption: "Residual distribution graphs (Figures 6–8). Top: Kriging (mean 0.052 m, StdDev 0.093 m). Middle: IDW (mean 0.052 m, StdDev 0.238 m). Bottom: Natural Neighbour (mean 0.071 m, StdDev 0.128 m)." },
+ 
+            { type: "section-heading", value: "Analysis and Discussion" },
+            { type: "text", value: "Kriging produced the most spatially coherent terrain model across all three evaluation criteria — DEM surface quality, topographic profile smoothness, and residual accuracy. Its ability to model spatial autocorrelation through the semivariogram allowed it to represent gradual elevation transitions accurately without introducing localised artefacts. This is consistent with its established performance in continuous terrain datasets and its suitability for archaeological landscape applications where subtle earthwork features, such as the Bronze Age barrows at Sullington Warren, require high surface fidelity to be detected and interpreted reliably. IDW's sensitivity to uneven point clustering produced the largest residual error and the most pronounced surface artefacts in this dataset, making it less appropriate for archaeological terrain modelling despite its computational efficiency. Natural Neighbour offered a reasonable compromise — preserving local terrain detail without the extremes of IDW distortion — but did not match the overall accuracy and surface coherence of Kriging. For the National Trust's archaeological investigations, Kriging is recommended as the preferred interpolation approach." },
+ 
+            { type: "section-heading", value: "Key Outcomes" },
+            { type: "list", items: [
+                "Generated three digital elevation models of Sullington Warren using Kriging, IDW, and Natural Neighbour interpolation within ArcGIS Pro.",
+                "Kriging produced the most accurate DEM with the tightest residual range (−0.039 m to +0.229 m) and lowest standard deviation (0.093 m) across seven GNSS checkpoints.",
+                "IDW generated the highest residual error (max +0.546 m, StdDev 0.238 m), driven by localised surface distortion around clustered survey points.",
+                "Topographic profiles along transects AB and CD confirmed Kriging's superior surface continuity compared to IDW and Natural Neighbour.",
+                "Kriging recommended as the preferred interpolation method for future archaeological terrain analysis and conservation management at Sullington Warren.",
+                "Multi-instrument survey approach — integrating GNSS, total station, MultiStation, and UAV photogrammetry — provided comprehensive spatial coverage of the complex heathland terrain."
+            ]},
+ 
+            { type: "section-heading", value: "Conclusion" },
+            { type: "text", value: "This study demonstrates that careful selection of interpolation technique is critical for producing high-quality digital terrain models suitable for archaeological landscape investigation. Kriging's geostatistical framework, which accounts for spatial autocorrelation, consistently outperformed the deterministic methods across surface quality, profile smoothness, and residual accuracy. For Sullington Warren — a site of national archaeological importance managed by the National Trust — this translates directly into more reliable identification and interpretation of Bronze Age barrows and associated earthworks. Future work could strengthen the analysis through increased checkpoint density, higher-resolution UAV point clouds, and cross-validation across a larger residual sample. Kriging remains the method of choice for detailed heritage terrain modelling in environments where subtle topographic features carry significant interpretive value." }
+        ]
     }
-
-}; // end PROJECT_ARTICLES
+    // end PROJECT_ARTICLES
 </script>
 
     <!-- =============================================
